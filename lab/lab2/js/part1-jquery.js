@@ -169,5 +169,60 @@ var Stamen_TonerLite = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/ton
 // the function passed to `ready` until the HTML document is fully loaded and all scripts have
 // been interpreted. It is, therefore, an example of asynchronous behavior.
 $(document).ready(function() {
-  // Do your stuff here
+  // Task1
+  $('#text-label1').text('Event');
+  $('#text-label2').text('Location');
+  $('#text-label3').text('Time');
+  $('#number-label').text('How many people');
+  $('#checkbox-label1').text('Is it only for members?');
+  $('#checkbox-label2').text('Is it free?');
+  $('#color-label').text('Select your color');
+
+
+  // Task2
+  $('#text-input1').val('Lecture');
+  $('#text-input2').val('Meyerson Hall');
+  $('#text-input3').val('Feburary 26th, 2017, 2 PM');
+  $('#numeric-input').val('30');
+  $('#cbox-input1').val('checked');
+  $('#cbox-input2').val('unchecked')
+  $('#color-input').val('#ffbb00');
+
+
+  // Task3
+  var Input={
+    Event:$('#text-input1').val(),
+    Location:$('#text-input2').val(),
+    Time:$('#text-input3').val(),
+    Number:$('#numeric-input').val(),
+    Check1:$('#cbox-input1').val(),
+    Check2:$('#cbox-input2').val(),
+    color:$('#color-input').val()
+
+  };
+  console.log(Input);
+
+  // Task4
+  $('#color-input').prop('disabled', false);
+  $('.input-text').prop('disabled', false);
+  $('#numeric-input').prop('disabled', false);
+  $('#cbox-input1').prop('disabled', false);
+  $('#cbox-input2').prop('disabled', false);
+
+  // Task5
+  $('button').click(function(){
+    console.log(Input)
+  });
+
+  // Task6
+  var color={color: $('#color-input').val()};
+  var description={Location: $('#text-input2').val()};
+
+  $('button').click(function(){
+    L.circle([39.952307, -75.192749], 200, color).bindPopup(description.Location).addTo(map);
+    L.marker([39.952307, -75.192749]).bindPopup(description.Location).openPopup(map);
+  });
+
+
+
 });
